@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Serie;
 use Laravel\Lumen\Routing\Controller as BaseController;
+use Illuminate\Http\Request;
 
 class SeriesController extends BaseController
 {
@@ -12,20 +13,32 @@ class SeriesController extends BaseController
         return Serie::all();
     }
 
-    public function store(Resquest $request)
+    public function store(Request $request)
     {
         return response()
             ->json(
-                Serie::create(['nome' => $request->nome]), 201
+                Serie::create($request->all()), 201
             );
     }
 
-    public function get(int $id)
+    public function show(int $id)
     {
         $serie = Serie::find($id);
         if(is_null($serie)){
             return response()->json($serie, 204);
         }
         return response()->json($serie, 404);
+    }
+
+    public function update(int $id, Request $request)
+    {
+        $serie = Serie::find($id);
+        if(is_null($serie)) {
+            return response()->json('Serie Não encontrada', 404);
+        }
+        $serie->fill($request->all());
+        $serie->save();
+
+        return $serie;
     }
 }
