@@ -41,4 +41,14 @@ class SeriesController extends BaseController
 
         return $serie;
     }
+
+    public function delete(int $id, Request $request)
+    {
+        $serie = Serie::find($request->id);
+        $serie->delete();
+        if (is_null($serie)) {
+            return response()->json('Serie Não encontrada', 404);
+        }
+        return $serie;
+    }
 }
