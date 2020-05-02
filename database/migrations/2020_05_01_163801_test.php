@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CriarTabelaSeries extends Migration
+class Test extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,7 @@ class CriarTabelaSeries extends Migration
      */
     public function up()
     {
-        Schema::create('series', function (Blueprint $table) {
-            $table->tinyIncrements('id');
-            $table->string('nome')->unique();
-        });
+        //
     }
 
     /**
@@ -26,6 +23,6 @@ class CriarTabelaSeries extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('series');
+        //
     }
 }
