@@ -42,7 +42,7 @@ class SeriesController extends BaseController
         return $serie;
     }
 
-    public function delete(int $id, Request $request)
+    public function destroy(int $id, Request $request)
     {
         $serie = Serie::find($request->id);
         $serie->delete();
