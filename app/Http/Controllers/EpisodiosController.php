@@ -6,27 +6,10 @@ namespace App\Http\Controllers;
 use App\Model\Episodio;
 
 
-class EpisodiosController
+class EpisodiosController extends BaseController
 {
-
-    public function index()
+    public function __construct()
     {
-        return Episodio::all();
+        $this->classe = Episodio::class;
     }
-
-    public function store()
-    {
-
-    }
-
-    public function update()
-    {
-
-    }
-
-    public function delete()
-    {
-
-    }
-
 }
