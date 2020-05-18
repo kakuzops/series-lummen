@@ -26,6 +26,8 @@ $router->group(['prefix' => '/api'], function() use ($router) {
         $router->put('{id}', 'SeriesController@update');
         $router->delete('{id}', 'SeriesController@destroy');
 
+        $router->get('{id}/episodios', 'EpisodiosController@buscaPorSerie');
+
     });
 
     $router->group(['prefix' => '/episodios'], function() use($router){
